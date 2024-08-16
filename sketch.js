@@ -24,7 +24,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(200);
   
   // Draw the outer circle
   noFill();
@@ -38,3 +38,6 @@ function draw() {
     ellipse(c.x, c.y, c.radius * 2);
   }
 }
+
+
+
