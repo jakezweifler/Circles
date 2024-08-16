@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -17,7 +17,17 @@ body {
   p {
     font-size: 18px;
     margin-bottom: 20px;
+  } */
+
+  html, body {
+    margin: 0;
+    padding: 0;
   }
+  
+  canvas {
+    display: block;
+  }
+
     
   canvas {
     display: block;
