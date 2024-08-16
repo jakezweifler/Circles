@@ -2,7 +2,7 @@ let outerCircle;
 let circles = [];
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(1200, 800);
 
   outerCircle = { x: width / 2, y: height / 2, radius: min(width, height) * 0.4 };
   

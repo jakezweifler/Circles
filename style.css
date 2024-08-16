@@ -13,7 +13,7 @@ body {
   canvas {
     display: block;
     margin: auto; /* Horizontally centers the canvas */
-    border: 4px solid black; /* Adds a black border to the canvas */
+    border: 2px solid black; /* Adds a black border to the canvas */
     background-color: white; /* Optional: Ensure the canvas background is white */
   }
   
