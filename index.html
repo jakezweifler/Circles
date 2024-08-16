@@ -3,91 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mutually Tangent Circles</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: white;
-        }
-        canvas {
-            background-color: lightgray;
-            border: 1px solid black;
-        }
-    </style>
+    <title>Circles with p5.js</title>
+    <link rel="stylesheet" href="style.css"> <!-- Optional CSS file -->
 </head>
 <body>
-    <canvas id="myCanvas"></canvas>
-
-    <script>
-        const canvas = document.getElementById('myCanvas');
-        const ctx = canvas.getContext('2d');
-
-        // Set canvas size
-        canvas.width = window.innerWidth * 0.9;
-        canvas.height = window.innerHeight * 0.9;
-
-        // Function to draw a circle
-        function drawCircle(x, y, radius, color = "black") {
-            ctx.beginPath();
-            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
-            ctx.strokeStyle = color;
-            ctx.stroke();
-            ctx.closePath();
-        }
-
-        // Outer large circle parameters
-        const outerCircle = {
-            x: canvas.width / 2,
-            y: canvas.height / 2,
-            radius: Math.min(canvas.width, canvas.height) * 0.4 // Large circle takes 40% of the smaller dimension
-        };
-
-        // Draw the outer circle
-        drawCircle(outerCircle.x, outerCircle.y, outerCircle.radius, "black");
-
-        // Randomly choose radii for two smaller circles
-        let r1 = Math.random() * (outerCircle.radius / 3) + (outerCircle.radius / 10); // Radius between 10% and 30% of outer circle
-        let r2 = Math.random() * (outerCircle.radius / 3) + (outerCircle.radius / 10); // Radius between 10% and 30% of outer circle
-
-        // Descartes' Circle Theorem: Finding the radius of the third circle
-        let k1 = 1 / r1;
-        let k2 = 1 / r2;
-        let k3 = (k1 + k2) + 2 * Math.sqrt(k1 * k2); // Sum of curvatures and their geometric mean
-        let r3 = 1 / k3; // Radius of the third circle
-
-        // Position the first circle
-        let circle1 = {
-            x: outerCircle.x - r1, // Positioned on the left
-            y: outerCircle.y,
-            radius: r1
-        };
-
-        // Position the second circle
-        let circle2 = {
-            x: outerCircle.x + r1 + r2, // Positioned to the right of the first circle
-            y: outerCircle.y,
-            radius: r2
-        };
-
-        // Position the third circle (based on the tangency condition)
-        let distanceBetween1And2 = circle1.radius + circle2.radius; // Distance between circle1 and circle2 centers
-        let distanceBetween2And3 = circle2.radius + r3; // Distance between circle2 and circle3 centers
-
-        let circle3 = {
-            x: outerCircle.x,
-            y: outerCircle.y + r1 + r3, // Positioned below the first two circles
-            radius: r3
-        };
-
-        // Draw the first three circles
-        drawCircle(circle1.x, circle1.y, circle1.radius, "red");
-        drawCircle(circle2.x, circle2.y, circle2.radius, "blue");
-        drawCircle(circle3.x, circle3.y, circle3.radius, "green");
-
-    </script>
+    <h1>p5.js Circle Packing</h1>
+    <p>Randomly generated three mutually tangent circles inside an outer circle</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script> <!-- p5.js library -->
+    <script src="sketch.js"></script> <!-- Your custom script -->
 </body>
 </html>
