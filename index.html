@@ -1,20 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Circle</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        canvas {
+            background-color: lightgray;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
 
-    <title>Circles!!</title>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size
+        canvas.width = window.innerWidth * 0.9;
+        canvas.height = window.innerHeight * 0.9;
+        
+        // Generate random circle properties
+        let radius = Math.random() * 50 + 20; // Random radius between 20 and 70
+        let x = Math.random() * (canvas.width - 2 * radius) + radius;
+        let y = Math.random() * (canvas.height - 2 * radius) + radius;
+        
+        let dragging = false;
+        let offsetX, offsetY;
 
-    <link rel="stylesheet" href="style.css">
-    
-    <script src="libraries/p5.min.js"></script>
-  </head>
+        // Draw the circle
+        function drawCircle() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+            ctx.fillStyle = "red";
+            ctx.fill();
+            ctx.closePath();
+        }
 
-  <body>
-    <h1>Circle Packing</h1>
-    <p>Randomly generated three mutually tangent circles inside an outer circle</p>
+        // Detect mouse down on the circle
+        canvas.addEventListener('mousedown', (e) => {
+            const mouseX = e.offsetX;
+            const mouseY = e.offsetY;
 
-    <script src="sketch.js"></script>
-  </body>
+            // Check if mouse is inside the circle
+            const distance = Math.sqrt((mouseX - x) ** 2 + (mouseY - y) ** 2);
+            if (distance < radius) {
+                dragging = true;
+                offsetX = mouseX - x;
+                offsetY = mouseY - y;
+            }
+        });
+
+        // Move the circle with the mouse
+        canvas.addEventListener('mousemove', (e) => {
+            if (dragging) {
+                x = e.offsetX - offsetX;
+                y = e.offsetY - offsetY;
+                drawCircle();
+            }
+        });
+
+        // Stop dragging
+        canvas.addEventListener('mouseup', () => {
+            dragging = false;
+        });
+
+        // Initial drawing
+        drawCircle();
+    </script>
+</body>
 </html>
