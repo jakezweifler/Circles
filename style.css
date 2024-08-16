@@ -1,30 +1,24 @@
-/* body {
-    font-family: Arial, sans-serif;
+/* Centering the canvas and adding a border */
+body {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin: 0;
+    align-items: center;
+    flex-direction: column;
     height: 100vh;
-    background-color: #f4f4f4;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 18px;
-    margin-bottom: 20px;
-  } */
-
-  html, body {
     margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
   }
   
   canvas {
     display: block;
+    margin: auto; /* Horizontally centers the canvas */
+    border: 4px solid black; /* Adds a black border to the canvas */
+    background-color: white; /* Optional: Ensure the canvas background is white */
   }
-
+  
+  h1, p {
+    text-align: center;
+    margin: 10px 0;
+  }
+  
