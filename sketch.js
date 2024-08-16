@@ -23,8 +23,8 @@ function setup() {
   let r1 = random(0, 80);
   let r2 = random(0, 80);
 
-  let b1 = 2 * (random() > 0.5 ? 1 : 0) - 1;
-  let x2 = x1 + b1 * 2 * sqrt(r1 * r2);
+//   let b1 = 2 * (random() > 0.5 ? 1 : 0) - 1;
+  let x2 = x1 + 2 * sqrt(r1 * r2);
 
 //   if (b1 === 0) {
 //     x2 = x1 + 2 * sqrt(r1 * r2);
@@ -37,7 +37,7 @@ function setup() {
   let circle1 = { x: x1, y: y1, radius: r1 };
   let circle2 = { x: x2, y: r2, radius: r2 };
 
-  circles.push(circle1);
+  circles.push(circle1, circle2);
 }
 
 function draw() {
