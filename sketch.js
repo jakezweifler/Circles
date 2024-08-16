@@ -38,7 +38,13 @@ function draw() {
   stroke(0);
   strokeWeight(1);
   ellipse(outerCircle.x, outerCircle.y, outerCircle.radius * 2);
+
   
+  customCircle(0,40, 40)
+  customCircle(0,40, 80)
+  customCircle(0,40, 20)
+
+
   customCircle(0,0, outerCircle.radius * 1.1)
 
   line(0 , height/2, 
