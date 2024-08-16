@@ -20,13 +20,22 @@ function setup() {
   
   // Randomly generate radii for the first two circles
   let x1 = random(-300, 300);
-  let y1 = random(0, 80);
-  
-  let b1 = random()
+  let r1 = random(0, 80);
+  let r2 = random(0, 80);
+
+  let b1 = 2 * (random() > 0.5 ? 1 : 0) - 1;
+  let x2 = x1 + b1 * 2 * sqrt(r1 * r2);
+
+//   if (b1 === 0) {
+//     x2 = x1 + 2 * sqrt(r1 * r2);
+//   } else {
+//     x2 = x1 - 2 * sqrt(r1 * r2);
+//   }
 
   
   // Position the circles inside the outer circle
-  let circle1 = { x: x1, y: y1, radius: y1 };
+  let circle1 = { x: x1, y: y1, radius: r1 };
+  let circle2 = { x: x2, y: r2, radius: r2 };
 
   circles.push(circle1);
 }
