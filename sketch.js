@@ -41,8 +41,8 @@ function draw() {
   
   customCircle(0,0, outerCircle.radius * 1.1)
 
-  line(outerCircle.x - width, outerCircle.y, 
-    outerCircle.x + width, outerCircle.y);
+  line(0 , height/2, 
+    width, height/2);
 
 
   // Draw the three mutually tangent circles
