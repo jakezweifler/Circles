@@ -2,7 +2,7 @@ let outerCircle;
 let circles = [];
 
 function setup() {
-  createCanvas(1200, 800);
+  createCanvas(1300, 600);
 
   outerCircle = { x: width / 2, y: height / 2, radius: min(width, height) * 0.4 };
   
@@ -33,9 +33,13 @@ function draw() {
   // Draw the outer circle
   noFill();
   stroke(0);
-  strokeWeight(2);
+  strokeWeight(1);
   ellipse(outerCircle.x, outerCircle.y, outerCircle.radius * 2);
   
+  line(outerCircle.x - width, outerCircle.y, 
+    outerCircle.x + width, outerCircle.y);
+
+
   // Draw the three mutually tangent circles
   for (let i = 0; i < circles.length; i++) {
     let c = circles[i];
