@@ -7,7 +7,7 @@ function customCircle(x, y, radius) {
     // This function draws a circle centered at (x, y) relative to the origin
     noFill();
     stroke(0);
-    ellipse(width/2 + x, height/ 2 + y, radius * 2); // Multiply by 2 to account for the diameter
+    ellipse(width/2 + x, height/ 2 - y, radius * 2); // Multiply by 2 to account for the diameter
   }
 
 
@@ -22,6 +22,8 @@ function setup() {
   let x1 = random(-300, 300);
   let y1 = random(0, 80);
   
+  let b1 = random()
+
   
   // Position the circles inside the outer circle
   let circle1 = { x: x1, y: y1, radius: y1 };
@@ -41,8 +43,7 @@ function draw() {
 
   
   customCircle(0,40, 40)
-  customCircle(0,40, 80)
-  customCircle(0,40, 20)
+
 
 
   customCircle(0,0, outerCircle.radius * 1.1)
