@@ -64,7 +64,7 @@ function draw() {
   // Draw the three mutually tangent circles
   for (let i = 0; i < circles.length; i++) {
     let c = circles[i];
-    customCircle(c.x, c.y, c.radius * 2);
+    customCircle(c.x, c.y, c.radius);
   }
 }
 
