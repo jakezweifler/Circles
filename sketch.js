@@ -1,6 +1,18 @@
 let outerCircle;
 let circles = [];
 
+
+
+function customCircle(x, y, radius) {
+    // This function draws a circle centered at (x, y) relative to the origin
+    noFill();
+    stroke(0);
+    ellipse(width/2 + x, height/ 2 + y, radius * 2); // Multiply by 2 to account for the diameter
+  }
+
+
+
+
 function setup() {
   createCanvas(1300, 600);
 
@@ -36,6 +48,8 @@ function draw() {
   strokeWeight(1);
   ellipse(outerCircle.x, outerCircle.y, outerCircle.radius * 2);
   
+  customCircle(0,0, outerCircle.radius * 2.2)
+
   line(outerCircle.x - width, outerCircle.y, 
     outerCircle.x + width, outerCircle.y);
 
