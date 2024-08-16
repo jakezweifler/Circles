@@ -3,6 +3,7 @@ let circles = [];
 
 function setup() {
   createCanvas(600, 600);
+
   outerCircle = { x: width / 2, y: height / 2, radius: min(width, height) * 0.4 };
   
   // Randomly generate radii for the first two circles
@@ -25,18 +26,30 @@ function setup() {
 
 function draw() {
   background(200);
+
+
+
+
+  // Draw a simple circle in the center of the canvas
+  noFill(); // No fill color
+  stroke(0); // Black stroke
+  strokeWeight(2); // Thickness of the line
+  ellipse(width / 2, height / 2, 300, 300); // Draw the circle
+
+
+
+
+//   // Draw the outer circle
+//   noFill();
+//   stroke(0);
+//   strokeWeight(2);
+//   ellipse(outerCircle.x, outerCircle.y, outerCircle.radius * 2);
   
-  // Draw the outer circle
-  noFill();
-  stroke(0);
-  strokeWeight(2);
-  ellipse(outerCircle.x, outerCircle.y, outerCircle.radius * 2);
-  
-  // Draw the three mutually tangent circles
-  for (let i = 0; i < circles.length; i++) {
-    let c = circles[i];
-    ellipse(c.x, c.y, c.radius * 2);
-  }
+//   // Draw the three mutually tangent circles
+//   for (let i = 0; i < circles.length; i++) {
+//     let c = circles[i];
+//     ellipse(c.x, c.y, c.radius * 2);
+//   }
 }
 
 
